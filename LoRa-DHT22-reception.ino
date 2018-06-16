@@ -5,6 +5,8 @@
 
 int counter = 0;
 String data = "";
+#define ss D1;
+#define reset D2;
 
 #define WIFI_AP         "YOUR_WIFI_AP"
 #define WIFI_PASSWORD   "YOUR_WIFI_PASSWORD"
@@ -21,6 +23,7 @@ unsigned long lastSend;
 void setup()
 {
   Serial.begin(115200);
+  LoRa.setPins(ss, reset);
   while (!Serial);
   Serial.println("LoRa Receiver");
   if (!LoRa.begin(433E6)) {
